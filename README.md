@@ -1,4 +1,4 @@
-# verilog_hackathon
+# Low latency and higher bandwidth network on chip system
 
 Our main problem statement is that we need to design such a NOC in which the latency is reduced without affecting the performance and output.
 Here we use asynchronous fifo as a buffer so that it operates at two different frequencies. The frequency at which the cpu would interact for the write operation will be different from the frequency with which the slave would request for read operation. In this case the data can be handled simultaneously. Also, the arbiter is the main which will handle the transfer of data. The master will send data through the arbiter. When write operation is being performed then the read enable of slave should be low. After the write operation has been executed then if the slave requests then we would check if master wants to communicate. If yes, then the enable of slave will go high and the data of memory would be given to slave. If slave asks for such a  address from the arbiter
